@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+        }
+        
+        header {
+            background: rgb(173, 216, 230);
+            background: linear-gradient(90deg, rgba(173, 216, 230, 1) 0%, rgba(240, 248, 255, 1) 100%);
+            padding: 20px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo {
+            height: 90px;
+        }
+        
+        .nav-link {
+            color: #333 !important;
+        }
+        
+        .nav-link:hover {
+            color: #1e90ff !important;
+        }
+        
+        form .form-control {
+            border-radius: 20px;
+            padding: 0.75rem 1.25rem;
+            margin-right: 10px;
+        }
+        
+        form .btn-outline-blue {
+            border: 1px solid #1e90ff;
+            color: #1e90ff;
+            border-radius: 20px;
+            padding: 0.75rem 1.25rem;
+        }
+        
+        form .btn-outline-blue:hover {
+            background-color: #1e90ff;
+            color: #fff;
+        }
+        
+        h1 {
+            color: #1e90ff;
+        }
+        
+        #del {
+            background-color: navy;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+        }
+        
+        #edit {
+            background-color: royalblue;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+        }
+        
+        #del:hover {
+            background-color: darkblue;
+        }
+        
+        #edit:hover {
+            background-color: dodgerblue;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="container">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="/"><img src="https://images-platform.99static.com//jS8WxqQ9jWWOmdr3O1ataaoKu3I=/618x1112:1120x1614/fit-in/590x590/99designs-contests-attachments/105/105674/attachment_105674166" class="logo"></a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/view">View</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/add">Add</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container text-center mt-4">
+        <table class="table table-secondary col-md-12 table-bordered">
+            <tr>
+                <th>Image</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Publish-Date</th>
+                <th>Action</th>
+            </tr>
+
+            <% data.map((val)=>{ %>
+
+                <tr>
+                    <td>
+                        <img src="<%= val.image %>" alt="image" width="100px">
+                    </td>
+                    <td>
+                        <%= val.title %>
+                    </td>
+                    <td>
+                        <%= val.author %>
+                    </td>
+                    <td>
+                        <%= val.date %>
+                    </td>
+                    <td>
+                        <a href="/deleteData/<%= val._id %>" id="del">Delete</a>
+                        <a href="/editData/<%= val._id %>" id="edit">Edit</a>
+                    </td>
+                </tr>
+
+                <% })%>
+        </table>
+    </div>
+
+</body>
+
+</html>
